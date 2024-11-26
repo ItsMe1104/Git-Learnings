@@ -30,7 +30,9 @@
 
 //*********************** */
 // c) Switching to some other branch :-
+
 // --> Use "git checkout branch_name"   (our HEAD will move to that branch)
+
 // --> We can also change branch graphically by clicking on the bottom left corner in the branch name and then selecting our desired branch
 
 
@@ -76,7 +78,7 @@
 
 // --> Use "git branch -D branch_name"    (for any branch which has commits and is not merged with master branch)
 
-// --> Use "git branch --delete branch_name"    (for any branch which has no commits or is already merged)
+// --> Use "git branch --delete branch_name"    (for any branch which has no commits or is already merged with some other branch)
 
 
 
@@ -91,3 +93,38 @@
 // --> If we change branch the HEAD will move to that branch
 
 // --> The current working directory will change accordingly
+
+
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+// 4) Merging Branches :-
+
+
+// --> To merge a branch into some other branch
+// A = branch we want to merge
+// B = branch where 'A' will be merged
+
+
+// NOTE :- // --> Whenever we merge a branch, a commit is created at the destination branch (here B) and a commit id is also present with a message "Merge branch <branch_to_be_merged>"
+
+
+
+// Steps :-
+// --> First, checkout to Branch B
+// --> Use "git merge A"
+
+// Hence, A will be merged to B
+
+
+
+//******************** */
+// e.g :- If we want to merge "contact" branch to "master branch"
+
+// --> git checkout master
+// --> git merge Contact
