@@ -79,7 +79,7 @@
 // NOTE :- NOW a days, Github has also adopted the "master" branch as its default branch , hence, no need to rename
 
 
-//**************************************** */
+//******************************************** */
 // c) To push our code to the online repositoty
 
 // --> Use "git push -u origin branch_name"
@@ -97,6 +97,7 @@
 
 
 //************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
 
 
 
@@ -144,7 +145,37 @@
 
 
 
+//********************************************* */
 // b) To get our local repository branch at sync with local repository branch. (local is behind)
+
+// --> Manily happens when more than one user works on our Github repository. When they push the code, it will not be available to our local system. Hence, we need to pull it
+
+
+// i) Git fetch and git merge (Bad way)
+
+// --> Use "git fetch"
+
+// --> Now the code will be fetched in our local machine, but still our local branch will be one step behind our online branch
+
+// --> Use "git merge origin/branch_name"
+
+// --> It will get our local branch at par with our online branch
+
+
+
+
+//********************************************* */
+// ii) Git pull (Best way)
+
+// --> Instead of using two commands :- git fetch and git merge
+// --> We can do this in a single command
+// --> Use "git pull"
+
+
+
+//******************************************************************
+// #) NOTE :- Doing "git log" will also show the commits along with all the original users that did that commit.
+
 
 
 
@@ -158,3 +189,67 @@
 // --> All the commit details that we did till now, in our local repository can be seen
 // --> The time when we last commited the file in our local repository (for the first push) will be shown instead of showing when we first pushed our code to Github
 // --> The branch graph will also be seen
+
+
+
+
+
+//************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+
+// 7) How to take the code of master branch into some other branch?
+
+// --> Just use "git merge master", hence, all the code of master branch will come to the current branch
+
+// --> Now both the master and the contact branch will be at same level
+
+
+
+//************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+// 8) Fast Forward merge & Collaborators:-
+
+// --> Whenever we try to merge a commit is created
+// --> But when both the branches don't have any diversion, hence on merging them no commit will be created and it will be a Fast forward merge
+
+
+
+// Collaborators :-
+
+// #) To add a contributor or collaborator :-
+// --> Go to settings
+// --> Click on Collaborator tab on left side
+// --> Click on Add people
+// --> Fill the id of the person we want to add
+// --> Click on "Add to repository"
+
+
+// #) User side :-
+// --> The user must accept the request
+// --> Click on Notification icon
+// --> Click on the invitation notification (Registered Gmail will also get a notification)
+// --> Click on "Accept invitation"
+// --> Hence, a repository will be added to the User Github
+// --> Now the User must clone the repository to get the files in its local machine and then make changes
+
+
+
+//************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+// 9) Cloning a repository :-
+
+// #) To clone a repository to get its files into our local system
+
+// --> To
+// --> Use "git clone full_url"
+
+
+
+//****************************** */
+// #) If the user1 does some changes and commited in online repository and user2 who was already working on local system wants to have the updated code :-
+// --> Use "git fetch" 
