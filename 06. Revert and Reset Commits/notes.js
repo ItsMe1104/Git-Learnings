@@ -122,7 +122,78 @@
 // --> Sometimes while retrieving commits we might not be able to get the id of the deleted commit
 // --> It might happen if we hadn't printed the git history in our terminal before deleting that commit
 // --> Hence, to solve that, we can use "git reflog"
-
+// --> This command will display a list of recent actions
+// --> It mainly tracks the movement of the HEAD reference
 
 //#) Command :-
 // --> "git reflog"
+
+
+// #) Need :-
+// --> Using "git log", we cannot see the removed commits, while using "git reflog" we can also see the removed commits
+
+
+
+
+//******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************* */
+
+
+
+// 5) Navigating using "HEAD" reference :-
+
+// --> The "HEAD" reference points to the current working directory.
+// --> If we checkout to some other branch or some other commit, then our current working directory changes accordingly and so does the "HEAD"
+
+
+
+//*********************************************************** */
+// #) Detached Head State :-
+// --> Normally the "HEAD" is always attached to some branch
+// --> But when we checkout to some commit, our current working directory changes and hence our HEAD gets detached and points to that commit.
+// --> Even if we try to checkout to the last commit id of that branch, we will still have a detached "HEAD" even though both "HEAD" and that branch points to that same commit.
+// --> To make the HEAD attached again, we have to use "git checkout <branch_name>"
+
+
+
+
+//*********************************************************** */
+// #) Navigation :-
+
+// --> "HEAD" actually holds the reference to the current commit id it is pointing
+// --> "head" or "head ~0" points to the current working directory's commit id
+// --> "head~1" will point to the commit id 1 step below of our current HEAD position
+// --> "head~2" will point to the commit id 2 step below of our current HEAD position
+// --> "head~3" will point to the commit id 3 step below of our current HEAD position
+//.
+//.
+//.
+// --> "head~n" will point to the commit id "n" step below of our current HEAD position
+
+
+
+
+//**************************************************** */
+// #) Uses :-
+// --> It can be used wherever we use commit ids in our git commands
+
+
+// e.g (1) :- While checking out to some other commit
+//         --> "git checkout head~4" :- will change the current working directory according to the fifth commit below from the current head.
+
+
+// e.g (2) :- While deleting or retrieving other commits
+//         --> "git reset head~4" :- will delete 4 commits from current Head position to below including the current Head. That is head~0, head~1, head~2 and head~3 commits will be deleted.
+
+
+
+
+
+//*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+
+
+// 6) Git Revert :-
+
+// --> It is used to delete a commit from online repo
+// --> Mainly used when we have already pushed our commit to the online repo
