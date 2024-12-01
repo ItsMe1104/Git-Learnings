@@ -197,3 +197,89 @@
 
 // --> It is used to delete a commit from online repo
 // --> Mainly used when we have already pushed our commit to the online repo
+// --> Any commit made by any user in the online repo can be reverted back
+// --> In this process, we don't modify or rewrite history
+// --> Whenever we revert, git will undo the changes of the commit we want to delete and create a fresh commit of those undone changes in the files.
+// --> We can revert any commit and the changes made in only that commit will be undone. #### "BUT IT CAN ALSO RESULT IN GIT CONFLICT"
+// --> Hence when we push our code again, all the undone changes in the code will also be pushed in the online repo.
+
+
+
+//**************************************************** */
+
+// #### Command :-
+// ==> git revert <commit_id>
+
+// --> A dialog box will appear containing the message we want to give while the "revert" command make its automatic commit.
+// --> Give the message and cross the that dialogue box.s
+// --> Here we give the commit id of the commit we want to delete and no like we use in "git reset"
+
+
+
+
+//************************************************* */
+
+// #) Reverting a range of commits together :-
+
+// --> We can revert a commit one by one
+// --> But if there are in synchronous order, and we want to revert them in a single order
+
+
+// --> Command :-
+// git revert <commid_id_1>..<commit_id_2>
+
+// # <commit_id_1> = till which commit we want to revert (Excluded from being revert)
+// # <commit_id_2> = starting commit from the top which will get reverted (Included in the revert)
+
+
+// NOTE :- By default separate dialogue boxes will open and separate commits will be created for all the commits
+
+
+
+//***************************** */
+
+// --> For reverting all the commits in a single commit :-
+
+// ## STEPS ##
+// Use the flag :- "--no-commit"
+// --> git revert --no-commit <commit_id1> <commit_id2>
+
+
+// It will hence, not create a commit but will add all the undone changes in the staging area
+
+// a) To undo the reverts :-
+// --> git revert --abort
+
+// b) To commit those changes in a single commit :-
+// --> git revert --continue
+
+// A dialogue box will appear for the message of that single commit
+
+
+
+//***************************** */
+
+// #) Difference between "git revert" and "git reset"
+
+// a) When we only want to delete or reset a commit while working in our local machine until we have not pushed that commit to our online repo, we can use "git reset"
+
+// b) But when we have pushed our commit to the online repository, it is not advisable to use "git reset".
+// --> This is because, some other user might have already pulled that commit, and if he tries to do changes in that code and push it, then it might be run some "Conflict" with our code later or mismatch with our git history.
+// --> Hence, we have to use "git revert".
+
+
+
+
+//********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************* */
+
+
+
+// 7) Git revert and git conflict :-
+
+// --> Using git revert might give "git conflicts" (next video) very frequently, hence, try to avoid deleting the commit once we have pushed it in the online repo
+
+// --> Not only for online repo, it can also give conflict in our local machine
+// For e.g :- If we changed a code and and committed it (console.log("Hello"))
+// --> In second commit we again changed that same peiece of code (console.log("Hiiii"))
+// --> Then if we try to revert the first commit, then it will give git conflict as that code is not present to undone that change.
+// --> Hence, we would have to resolve that error.
